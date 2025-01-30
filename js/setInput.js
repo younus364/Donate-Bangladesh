@@ -64,4 +64,32 @@ document.getElementById('noakhali').addEventListener('click',function(){
    `
   document.getElementById('donet-list').appendChild(div)
 })
+
+ document.getElementById('quota').addEventListener('click',function(){
+   const donatedTaka = calculation('quota-input')
+   if(isNaN(donatedTaka)){
+      return ;
+      
+    }
+   const rechentBdt = setInnerText('quota-BDT')
+   const totalBDT = setInnerText('inTotalBDT')
+   const result = donatedTaka + rechentBdt;
+   const total = totalBDT - result;
+   document.getElementById('quota-BDT').innerText = result;
+   document.getElementById('inTotalBDT').innerText = total;
+   document.getElementById('quota-input').value = ' '
+
+   const today = new Date();
+   const dateString = today.toLocaleDateString();
+   console.log(dateString);
+   const div = document.createElement('div')
+   div.innerHTML = `
+   <div class = " border rounded-lg p-6 mb-3 ">
+   <h1 class = "text-xl font-bold mb-3"> ${donatedTaka} Taka is Aid for Injured in the Quota Movement </h1>
+   <p class = " bg-slate-100 p-2 rounded-md"> ${today}</p>
+    </div>
+   `
+  document.getElementById('donet-list').appendChild(div)
+})
+
  
